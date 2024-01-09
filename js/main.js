@@ -23,13 +23,15 @@ if(isNaN(customerKilometers) || isNaN(customerAge) || customerKilometers <= 0 ||
 
 // calcolo effettivo del prezzo del biglietto
 if(!error){
-    ticketPrice = customerKilometers * 0.21;
+    // calcolo prezzo senza sconto
+    ticketPrice = (customerKilometers * 0.21).toFixed(2);
     console.log('Prezzo del biglietto senza sconti: ' + ticketPrice);
-    if (customerAge<18){
+    // calcolo sconto e modifica prezzo
+    if (customerAge < 18){
         const sconto = ((ticketPrice/100)*20).toFixed(2);
         console.log("C'è uno sconto di: " + sconto + "$");
         ticketPrice = ticketPrice - sconto;
-    } else if (customerAge>65){
+    } else if (customerAge > 65){
         const sconto = ((ticketPrice/100)*20).toFixed(2);
         console.log("C'è uno sconto di: " + sconto + "$");
         ticketPrice = ticketPrice - sconto;
